@@ -1,0 +1,64 @@
+*  Generated for: PrimeSim
+*  Design library name: cp_lib1
+*  Design cell name: cp_ota
+*  Design view name: schematic
+.lib 'saed32nm.lib' TT
+
+*Custom Compiler Version S-2021.09
+*Mon Feb 28 04:48:28 2022
+
+.global gnd!
+********************************************************************************
+* Library          : cp_lib1
+* Cell             : cp_ota
+* View             : schematic
+* View Search List : hspice hspiceD schematic spice veriloga
+* View Stop List   : hspice hspiceD
+********************************************************************************
+xm25 vout net61 net59 net59 p105 w=1.0500m l=0.4u nf=300 m=1
+xm24 net61 net61 net59 net59 p105 w=0.300000m l=0.5u nf=85.7143 m=1
+xm8 net34 net43 net59 vin p105 w=15.0000u l=1u nf=4.28571 m=1
+xm10 net43 net43 net59 vout p105 w=15.0000u l=1u nf=4.28571 m=1
+xm9 net30 net30 net59 vin p105 w=15.0000u l=1u nf=4.28571 m=1
+xm0 net41 net30 net59 vout p105 w=15.0000u l=1u nf=4.28571 m=1
+i19 net59 vb dc=20n
+xm27 vout net34 gnd! gnd! n105 w=0.599952m l=1u nf=174 m=1
+xm26 net61 net41 gnd! gnd! n105 w=0.117703m l=1u nf=3.42857e+1 m=1
+xm18 vb vb gnd! gnd! n105 w=15u l=0.5u nf=5 m=1
+xm14 net43 vb gnd! gnd! n105 w=15.0000u l=0.5u nf=4.28571 m=1
+xm12 net34 net41 gnd! gnd! n105 w=0.399968m l=0.5u nf=116 m=1
+xm13 net41 net41 gnd! gnd! n105 w=0.399968m l=0.5u nf=116 m=1
+xm11 net30 vb gnd! gnd! n105 w=15.0000u l=0.5u nf=4.28571 m=1
+v20 net59 gnd! dc=0.5
+c29 vout gnd! c=30p
+c28 net34 vout c=1.9p
+v42 vin gnd! dc=0 pulse ( 0.5 0 0 1p 1p 25p 50p )
+
+
+
+
+
+
+
+
+.tran '0.01' '50p' name=tran
+
+.option primesim_remove_probe_prefix = 0
+.probe v(*) i(*) level=1
+.probe tran v(vin) v(vout)
+
+.temp 25
+
+
+
+.option primesim_output=wdf
+
+
+.option parhier = LOCAL
+
+
+
+
+
+
+.end
